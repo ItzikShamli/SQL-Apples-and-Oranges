@@ -1,0 +1,8 @@
+SELECT
+    app.sale_date,
+    app.sold_num - orng.sold_num AS diff
+FROM
+(select sale_date, sold_num from sales where fruit = 'apples') AS app,
+(select sale_date, sold_num from sales where fruit = 'oranges') AS orng
+WHERE
+    app.sale_date = orng.sale_date
